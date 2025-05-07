@@ -51,9 +51,9 @@ MonoBehaviour:
   randomMoveAmount: 0
   randomDirection: 0
   moveSpeed: 500
-  health: 50
+  health: 35
   wallAttackDamage: 20
-  boostDamage: 5
+  boostDamage: 10
   damageToPlayer: 10
   alive: 1
   gravityOnDeath: 10

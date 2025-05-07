@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14549bd82571894dbc787c4d240346b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startColor: {r: 0.8, g: 0.25882354, b: 0.36862746, a: 1}
-  endColor: {r: 0.45882353, g: 0.09019608, b: 0.3372549, a: 1}
+  startColor: {r: 1, g: 0.72156864, b: 0.4745098, a: 1}
+  endColor: {r: 0.8, g: 0.25882354, b: 0.36862746, a: 1}
   pulseInterval: 0.05
   pulseScaleMultiplier: 1.5
   flickerInterval: 0.04
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14549bd82571894dbc787c4d240346b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startColor: {r: 1, g: 0.72156864, b: 0.4745098, a: 1}
+  startColor: {r: 0.8, g: 0.25882354, b: 0.36862746, a: 1}
   endColor: {r: 0.45882353, g: 0.09019608, b: 0.3372549, a: 1}
   pulseInterval: 0.07
   pulseScaleMultiplier: 3
@@ -491,8 +491,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14549bd82571894dbc787c4d240346b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startColor: {r: 0.9882353, g: 0.9372549, b: 0.5529412, a: 1}
-  endColor: {r: 0.6392157, g: 0.15686275, b: 0.34509805, a: 1}
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  endColor: {r: 0.9882353, g: 0.9372549, b: 0.5529412, a: 1}
   pulseInterval: 0.05
   pulseScaleMultiplier: 1.2
   flickerInterval: 0.04
