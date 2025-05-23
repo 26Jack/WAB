@@ -11,6 +11,7 @@ public class EnemyTest : MonoBehaviour, IExplosionDamage
     private SpriteRenderer sr;
 
     public GameObject explosionPrefab;
+    public GameObject scoreNotif;
 
     [Header("Movement")]
     public int randomMoveAmount = 0;
@@ -80,7 +81,7 @@ public class EnemyTest : MonoBehaviour, IExplosionDamage
                 sr.color = Color.white;
                 damageFlashing = false;
                 damageFlashTimer = 0;
-                Debug.Log("should be white now");
+                //Debug.Log("should be white now");
             }
         }
 
@@ -175,7 +176,14 @@ public class EnemyTest : MonoBehaviour, IExplosionDamage
 
         if (collision.gameObject.CompareTag("Wall"))
         {
-            DieWall();
+            if (alive)
+            {
+                DieWall(); // logic to prevent score being counted twice
+            }
+            else
+            {
+                Explode();
+            }
         }
 
         if (collision.gameObject.CompareTag("Kill Floor") && !alive)
@@ -259,7 +267,7 @@ public class EnemyTest : MonoBehaviour, IExplosionDamage
 
     public void ExplosionDamage(float damage)
     {
-        Debug.Log("explosion damage: " + damage);
+        //Debug.Log("explosion damage: " + damage);
         health -= damage;
 
         sr.color = Color.red;
@@ -273,6 +281,7 @@ public class EnemyTest : MonoBehaviour, IExplosionDamage
 
     public void DieElectric()
     {
+        FindObjectOfType<ScoreTracker>().UpdateScore(100);
         Corpse();
         exploding = true;
         sr.color = Color.blue;
@@ -280,17 +289,20 @@ public class EnemyTest : MonoBehaviour, IExplosionDamage
 
     public void DieBoost()
     {
+        FindObjectOfType<ScoreTracker>().UpdateScore(100);
         Corpse();
         sr.color = Color.gray;
     }
 
     public void DieExplosion()
     {
+        FindObjectOfType<ScoreTracker>().UpdateScore(100);
         Explode();
     }
 
     public void DieWall()
     {
+        FindObjectOfType<ScoreTracker>().UpdateScore(100);
         Explode();
     }
 

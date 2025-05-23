@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sr;
     public SpriteFlash barLeft;
     public SpriteFlash barRight;
+    public TextMeshProUGUI wallHitText;
 
     [Header("Keybinds")]
     public KeyCode up = KeyCode.UpArrow;
@@ -43,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
     public float invincibilityDuration = 1f;
     public float invincibilityFlashTimer = 0;
     public float invincibilityFlashThresh = 0.2f;
+
+    public int bumps = 0;
 
     public event Action OnHitWall;
 
@@ -173,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
             // contactpoint to find direction of bounce (hitting left wall = 1, hitting right wall = -1)
             ContactPoint2D contact = collision.GetContact(0);
             Vector2 normal = contact.normal;
-            Debug.Log("Bounce direction: " + normal);
+            //Debug.Log("Bounce direction: " + normal);
 
             HitWall();
 
@@ -185,6 +189,10 @@ public class PlayerMovement : MonoBehaviour
                 barLeft.Flash();
             }
         }
+
+        bumps++;
+        UpdateWallHitText();
+
     }
 
     public void HitWall()
@@ -200,11 +208,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!invincible)
         {
-            Debug.Log("ate it");
+            //Debug.Log("ate it");
             FindObjectOfType<CameraShake>().Shake(0.15f, 4);
             invincible = true;
             invincibilityTimer = 0f;
         }
+    }
+    void UpdateWallHitText()
+    {
+        wallHitText.text = "Bumps: " + bumps.ToString();
     }
 }
 

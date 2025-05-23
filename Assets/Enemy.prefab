@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 9113942334306011953, guid: 871569b65dd1cc243a90e51c68532f37, type: 3}
+  scoreNotif: {fileID: 1653814353607268289, guid: 872aa043e8a04ef47b111594414afb95, type: 3}
   randomMoveAmount: 0
   randomDirection: 0
   moveSpeed: 500
